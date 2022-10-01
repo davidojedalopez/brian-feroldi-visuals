@@ -1,0 +1,7 @@
+{
+  "tags": [
+    "visual"
+  ],
+  "author": "Brian Feroldi",
+  "layout": "layouts/visual.njk"
+}

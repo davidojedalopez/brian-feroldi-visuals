@@ -1,12 +1,12 @@
-<!doctype html>
-<html lang="es" class="relative h-full">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hey!</title>
-    <link rel="stylesheet" type="text/css" href="{{ '/styles/index.css' | url }}" >
-  </head>
-  <body>
-    <h1 class="text-center text-6xl">Hey!</h1>
-  </body>
-</html>
+---
+layout: layouts/base.njk
+---
+
+<h1 class="px-4 pt-8 text-2xl">This is a collection of Brian Feroldi's visuals for Financial Wellness.</h1>
+<section class="pt-12 px-4 grid grid-cols-1 lg:grid-cols-2 gap-x-4 gap-y-24 place-items-center">
+  {% for visual in collections.visual %}
+    <a href="{{ visual.url | url }}">
+      <img src="visuals_images/{{ visual.fileSlug }}.png" />
+    </a>
+  {% endfor %}
+</section>
