@@ -1,2 +1,1 @@
-User-agent: Algolia Crawler
-Allow: /
+Sitemap: https://brian-feroldi-visuals.netlify.app/sitemap.xml

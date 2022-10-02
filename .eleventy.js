@@ -36,5 +36,5 @@ function imageShortCode(src, alt = "", captionClasses = "", imgClasses = "", siz
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("visuals_images")
   eleventyConfig.addShortcode("image", imageShortCode);
-  
+
 }
