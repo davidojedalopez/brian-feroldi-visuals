@@ -1,14 +1,48 @@
 <!doctype html>
-<html lang="es" class="relative h-full">
+<html lang="en" class="relative h-full">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hey!</title>
     <link rel="stylesheet" type="text/css" href="{{ '/styles/index.css' | url }}" >
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ metadata.url }}{{ page.url }}">
+    <meta property="og:title" content="{{ renderData.title or title or metadata.title }}">
+    <meta property="og:description" content="{{ renderData.description or description or metadata.description }}">
+    <meta property="og:image" content="{{ metadata.url }}/visuals_images/{{page.fileSlug}}.png">
+
+    {% if tags %}
+      {% for tag in tags %}        
+        <meta property="article:tag" content="{{ tag }}">        
+      {% endfor %}
+    {% endif %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.4.5/themes/reset-min.css" integrity="sha256-QlHlZdbSVxaYkUHxhMFhAj/L3pJiW1LuomSCONXBWms=" crossorigin="anonymous">
   </head>
   <body class="bg-[#3E3D43] text-white">
     <main>
       {{ content | safe }}
-    </main>    
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.14.2/dist/algoliasearch-lite.umd.js" integrity="sha256-dImjLPUsG/6p3+i7gVKBiDM8EemJAhQ0VvkRK2pVsQY=" crossorigin="anonymous" async></script>
+    <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.46.2/dist/instantsearch.production.min.js" integrity="sha256-ZyB2MNb5ZWtSnHS+PBJebb+NFWDxb2qQiVmN5S7DFqc=" crossorigin="anonymous" async></script>
+    <script type="text/javascript">
+      const searchClient = algoliasearch('19UQDI2KYW', '8a4caf25b7e0824c22d20da9685f8734');
+      const search = instantsearch({
+        indexName: 'demo_ecommerce',
+        searchClient,
+      });
+
+      search.addWidgets([
+        instantsearch.widgets.searchBox({
+          container: '#searchbox',
+        }),
+
+        instantsearch.widgets.hits({
+          container: '#hits',
+        })
+      ]);
+
+      search.start();
+    </script>
   </body>
 </html>
