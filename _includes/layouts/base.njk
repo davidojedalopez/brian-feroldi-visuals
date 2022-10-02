@@ -13,7 +13,7 @@
     <meta property="og:url" content="{{ metadata.url }}{{ page.url }}">
     <meta property="og:title" content="{{ renderData.title or title or metadata.title }}">
     <meta property="og:description" content="{{ renderData.description or description or metadata.description }}">
-    <meta property="og:image" content="{{ metadata.url }}/visuals_images/{{page.fileSlug}}.png">
+    <meta property="og:image" content="{{ metadata.url }}/visuals_images/{{page.fileSlug}}.{{renderData.image_extension or image_extension}}">
 
     {% if tags %}
       {% for tag in tags %}        
@@ -25,62 +25,6 @@
   <body class="bg-[#3E3D43] text-white">
     <main>
       {{ content | safe }}
-    </main>
-    <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.14.2/dist/algoliasearch-lite.umd.js" integrity="sha256-dImjLPUsG/6p3+i7gVKBiDM8EemJAhQ0VvkRK2pVsQY=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.46.2/dist/instantsearch.production.min.js" integrity="sha256-ZyB2MNb5ZWtSnHS+PBJebb+NFWDxb2qQiVmN5S7DFqc=" crossorigin="anonymous"></script>
-    <script type="text/javascript">
-      const searchClient = algoliasearch('19UQDI2KYW', '8a4caf25b7e0824c22d20da9685f8734');
-      const search = instantsearch({
-        indexName: 'netlify_c8cfe970-d5d3-4f08-86f9-147be0ae7f98_main_all',
-        searchClient,
-      });
-
-      search.addWidgets([
-        instantsearch.widgets.searchBox({
-          container: '#searchbox',
-          autofocus: true,
-          placeholder: "Search things like: savings, emergency, stocks...",
-          showReset: false,
-          showSubmit: false,
-          showLoadingIndicator: true,
-          cssClasses: {
-            input: "h-8 pl-2 block w-full rounded-sm border border-gray-300 text-black outline-0 focus:border-2 focus:border-[#FFEB62] focus:ring-[#FFEB62] text-xs md:text-md"
-          }
-        }),
-
-        instantsearch.widgets.hits({
-          container: '#hits',
-          cssClasses: {
-            list: ['grid grid-cols-1 lg:grid-cols-2 gap-x-4 gap-y-16 place-items-center']
-          },
-          templates: {
-            item({ url, title, pathname }, { html, components, sendEvent }) {          
-              const image_path = pathname.split('/')[2]              
-              if(!image_path) {
-                return "";
-              }
-              return `<a href="${url}">
-                <figure>
-                  <picture>
-                    <source type="image/webp" srcset="/visuals_images/${image_path}-600w.webp 600w, /visuals_images/${image_path}-640w.webp 640w" sizes="(min-width: 40em) 50vw, 100vw">
-                    <source type="image/jpeg" srcset="/visuals_images/${image_path}-600w.jpeg 600w, /visuals_images/${image_path}-640w.jpeg 640w" sizes="(min-width: 40em) 50vw, 100vw">
-                    <source type="image/gif" srcset="/visuals_images/${image_path}-600w.gif 600w, /visuals_images/${image_path}-640w.gif 640w" sizes="(min-width: 40em) 50vw, 100vw">
-                    <img class="" alt="Saving vs Investing" 
-                                  loading="lazy" 
-                                  decoding="async" 
-                                  src="/visuals_images/${image_path}-600w.jpeg" 
-                                  width="640" 
-                                  height="320">
-                  </picture>
-                  <figcaption class="pt-2 text-center text-sm opacity-75">${title}</figcaption>
-                </figure></a>
-              `;
-            }
-          }
-        })
-      ]);
-
-      search.start();
-    </script>
+    </main>    
   </body>
 </html>

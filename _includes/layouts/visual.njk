@@ -5,6 +5,6 @@ permalink: "visuals/{{ page.fileSlug }}/"
 
 <section class="flex flex-col place-items-center ">
   <h1 class="px-4 pt-8 text-2xl">{{ title }}</h1>
-  {% set image_url = 'visuals_images/' + page.fileSlug + '.png' %}
+  {% set image_url = 'visuals_images/' + page.fileSlug + '.' + image_extension %}
   {% image image_url %}
 </section>

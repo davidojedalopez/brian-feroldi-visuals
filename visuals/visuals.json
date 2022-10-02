@@ -3,5 +3,6 @@
     "visual"
   ],
   "author": "Brian Feroldi",
+  "image_extension": "png",
   "layout": "layouts/visual.njk"
 }

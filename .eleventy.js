@@ -16,7 +16,7 @@ function imageShortCode(src, alt = "", captionClasses = "", imgClasses = "", siz
       }),
       urlPath: "/visuals_images/",
       outputDir: "./_site/visuals_images",
-      useCache: true
+      useCache: false
     }
     Image(src, options)
 
