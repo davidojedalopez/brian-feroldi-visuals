@@ -22,9 +22,13 @@
     {% endif %}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.4.5/themes/reset-min.css" integrity="sha256-QlHlZdbSVxaYkUHxhMFhAj/L3pJiW1LuomSCONXBWms=" crossorigin="anonymous">
   </head>
-  <body class="bg-[#3E3D43] text-white">
-    <main>
+  <body class="h-full flex flex-col bg-[#3E3D43] text-white">
+    <main class="flex-[1_0_auto]">
       {{ content | safe }}
-    </main>    
+    </main>
+    <footer class="shrink-0 w-full px-8 pb-8 pt-16 text-center">
+      <p>Made with ☕️ and 🦴 by <a class="underline underline-offset-4 decoration-[#FFEB62]" href="https://twitter.com/PerroDinero">Perro Dinero</a>.
+      <p>This is <a class="underline underline-offset-4 decoration-[#FFEB62]" href="https://github.com/davidojedalopez/brian-feroldi-visuals">Open Source</a>.</p>
+    </footer>    
   </body>
 </html>
