@@ -38,6 +38,14 @@
       search.addWidgets([
         instantsearch.widgets.searchBox({
           container: '#searchbox',
+          autofocus: true,
+          placeholder: "Search things like: savings, emergency, stocks...",
+          showReset: false,
+          showSubmit: false,
+          showLoadingIndicator: true,
+          cssClasses: {
+            input: "h-8 pl-2 block w-full rounded-md border border-gray-300 text-black outline-0 focus:border-2 focus:border-[#FFEB62] focus:ring-[#FFEB62] text-sm md:text-md"
+          }
         }),
 
         instantsearch.widgets.hits({
