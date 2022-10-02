@@ -6,7 +6,10 @@
   "scripts": {
     "dev:tailwindcss": "npx tailwindcss -i ./styles/index.css -o ./_site/styles/index.css --watch",
     "dev:11ty": "npx @11ty/eleventy --serve",
-    "dev": "npm-run-all --parallel dev:*"
+    "dev": "npm-run-all --parallel dev:*",
+    "build:eleventy": "eleventy",
+    "build": "run-s clean build:*",
+    "clean": "rimraf _site"
   },
   "keywords": [],
   "author": "",
