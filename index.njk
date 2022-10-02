@@ -2,7 +2,12 @@
 layout: layouts/base.njk
 ---
 
-<h1 class="px-4 pt-8 text-2xl">This is a collection of Brian Feroldi's visuals for Financial Wellness.</h1>
+<section class="px-12 pt-8">
+  <h1 class="text-3xl md:text-4xl">Welcome to Brian Feroldi's collection of visuals for Financial Wellness.</h1>
+  <p class="pt-4">
+    <a class="font-medium underline underline-offset-4 decoration-[#FFEB62]" href="https://twitter.com/BrianFeroldi">Follow him on Twitter</a> for more amazing content!
+  </p>
+</section>
 <section class="pt-12 px-4 grid grid-cols-1 lg:grid-cols-2 gap-x-4 gap-y-24 place-items-center">
   {% for visual in collections.visual %}
     <a href="{{ visual.url | url }}">
